@@ -26,5 +26,11 @@ class DescriptionActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val readButton = findViewById<Button>(R.id.ReadButton)
+        readButton.setOnClickListener {
+            val i :Intent = Intent(this,PdfActivity::class.java)
+            startActivity(i)
+        }
+
     }
 }
