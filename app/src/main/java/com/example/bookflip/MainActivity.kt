@@ -1,9 +1,11 @@
 package com.example.bookflip
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bookflip.Adapters.ChildAdapter
 import com.example.bookflip.Adapters.ParentAdapter
 import com.example.bookflip.models.BookParent
 import com.example.bookflip.models.bookChild
@@ -12,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var  mainRecyclerView: RecyclerView
     lateinit var mainAdapter: ParentAdapter
+    lateinit var clickAdapter: ChildAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,14 +66,15 @@ class MainActivity : AppCompatActivity() {
         allCategory.add(BookParent("BEST SELLER",content5))
         allCategory.add(BookParent("TOP TODAY",content6))
 
-        setMainRecycler(allCategory)
+        setMainRecycler(allCategory,content1)
     }
 
-    private  fun setMainRecycler(category:List<BookParent>){
+    private  fun setMainRecycler(category:List<BookParent>,content:List<bookChild>){
         mainRecyclerView = findViewById(R.id.mainRecyclerView)
         val layoutManager:RecyclerView.LayoutManager = LinearLayoutManager(this)
         mainRecyclerView!!.layoutManager = layoutManager
         mainAdapter = ParentAdapter(this,category)
         mainRecyclerView.adapter = mainAdapter
+
     }
 }
