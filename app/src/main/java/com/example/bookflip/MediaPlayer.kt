@@ -1,13 +1,12 @@
 package com.example.bookflip
 
+import android.media.AudioManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.widget.SeekBar
-import android.widget.TextView
 import android.media.MediaPlayer
-import android.widget.Button
-import android.widget.Toast
+import android.net.Uri
+import android.widget.*
 import java.util.concurrent.TimeUnit
 
 class MediaPlayer : AppCompatActivity() {
@@ -28,6 +27,7 @@ class MediaPlayer : AppCompatActivity() {
     lateinit var seekBar: SeekBar
     lateinit var time_left:TextView
     lateinit var title_track:TextView
+    lateinit var imageBookView: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +38,7 @@ class MediaPlayer : AppCompatActivity() {
         val backwardButton = findViewById<Button>(R.id.backward_btn)
         val playButton = findViewById<Button>(R.id.play_btn)
         val pauseButton = findViewById<Button>(R.id.pause_btn)
+        imageBookView = findViewById(R.id.imageView)
 
         title_track = findViewById(R.id.audio_title)
         time_left = findViewById(R.id.time_left)
@@ -45,7 +46,25 @@ class MediaPlayer : AppCompatActivity() {
 
 
         //creating media player
-        mediaPlayer = MediaPlayer.create(this,R.raw.letmedownslowly)
+
+        //bundle for id
+        val bundle: Bundle? = intent.extras
+        val bookid = bundle?.get("id").toString().toInt()
+
+        //creating media player
+        var audioList = mutableListOf(R.raw.richdad,R.raw.richdad,R.raw.richdad,R.raw.richdad,R.raw.richdad)
+        mediaPlayer = MediaPlayer.create(this, audioList[bookid])
+
+        //TitleTrack
+        var titleofAudio = mutableListOf<String>("Tile","Atomic Habits", "Rich Dad Poor Dad", "The Psychology of Money", "How to win friends and influence people" )
+        title_track.setText(titleofAudio[bookid])
+
+
+
+
+        //setting image
+        var imageBook = mutableListOf(R.drawable.music_logo,R.drawable.atomichabits, R.drawable.richdad, R.drawable.pyschologymoney, R.drawable.winfriends)
+        imageBookView.setImageResource(imageBook[bookid])
 
 
 
@@ -112,5 +131,8 @@ class MediaPlayer : AppCompatActivity() {
 
     }
 
-
+    override fun onDestroy() {
+        super.onDestroy()
+         mediaPlayer.pause()
+    }
 }
