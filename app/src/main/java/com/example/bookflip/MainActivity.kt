@@ -24,16 +24,16 @@ class MainActivity : AppCompatActivity() {
         content1.add(bookChild(1,R.drawable.winfriends))
         content1.add(bookChild(1,R.drawable.pyschologymoney))
         content1.add(bookChild(1,R.drawable.richdad))
-        content1.add(bookChild(1,R.drawable.atomichabits))
+        content1.add(bookChild(1,R.drawable.ikigai))
 
         val content2 = ArrayList<bookChild>()
         content2.add(bookChild(2,R.drawable.richdad))
         content2.add(bookChild(2,R.drawable.pyschologymoney))
         content2.add(bookChild(2,R.drawable.winfriends))
-        content2.add(bookChild(2,R.drawable.atomichabits))
+        content2.add(bookChild(2,R.drawable.ikigai))
 
         val content3 = ArrayList<bookChild>()
-        content3.add(bookChild(3,R.drawable.atomichabits))
+        content3.add(bookChild(3,R.drawable.ikigai))
         content3.add(bookChild(3,R.drawable.richdad))
         content3.add(bookChild(3,R.drawable.pyschologymoney))
         content3.add(bookChild(3,R.drawable.winfriends))
@@ -42,19 +42,19 @@ class MainActivity : AppCompatActivity() {
         content4.add(bookChild(4,R.drawable.winfriends))
         content4.add(bookChild(4,R.drawable.pyschologymoney))
         content4.add(bookChild(4,R.drawable.richdad))
-        content4.add(bookChild(4,R.drawable.atomichabits))
+        content4.add(bookChild(4,R.drawable.ikigai))
 
         val content5 = ArrayList<bookChild>()
         content5.add(bookChild(5,R.drawable.winfriends))
         content5.add(bookChild(5,R.drawable.pyschologymoney))
         content5.add(bookChild(5,R.drawable.richdad))
-        content5.add(bookChild(5,R.drawable.atomichabits))
+        content5.add(bookChild(5,R.drawable.ikigai))
 
         val content6 = ArrayList<bookChild>()
         content6.add(bookChild(6,R.drawable.winfriends))
         content6.add(bookChild(6,R.drawable.pyschologymoney))
         content6.add(bookChild(6,R.drawable.richdad))
-        content6.add(bookChild(6,R.drawable.atomichabits))
+        content6.add(bookChild(6,R.drawable.ikigai))
 
 
 
